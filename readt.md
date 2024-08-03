@@ -71,23 +71,29 @@ The Front End handles the initial phase of compilation. That is, itreads a b-pro
 
 The Middle End performs semantic analysis and optimization:
 
-- **Semantic Analysis**: Ensures semantic correctness of the program. 
+- **Semantic Analysis**: Ensures semantic correctness of the program. It encompasses (1) checking type composition consistency (e.g., adding string and integer), (2) checking types during assignment (e.g., assigning boolean to integer), (3) checking types of parameters during function call (e.g., providing 2 parameters instead of 3 or same parameters with different types)
+, (4) checking types of control expressions and statements in for-loop (e.g., stop-condition expression must be boolean), (5) checking types of control expressions in if-blocks (e.g., if-condition expression must be boolean), (6) checking types of array index (e.g., index expressions must be of type integer), (7) checking types of return, (8) checking illegal use of identifier as function, array, constant and variable
 - **Optimization**: Improves the code by  (1) propagating constants at the global scope, and (2) eliminating dead codes (e.g., codes after return statement).
 - **Intermediate Representation**: The optimized intermediate representation of the code, such as shown by Figure 5, comprises of a rich symbol table containing good amount of semantic information on symbols found in the code as well as a so-called indexed AST in which symbols are grounded into symbol table. 
 <p align=center>
-<img src="imgs/GroundedAST.png"></img>
-<img src="imgs/SymbolTable.png"></img>
+<img src="imgs/IR.png"></img>
 </p>
 <p align=center>
-<em>Fig.5: Optimized intermediate representation from semantic analysis</em>
+<em>Fig.5: Optimized intermediate representation from semantic analysis. (left) Symbol table, (right) grounded AST</em>
 </p>
 ## Back End
 
 The Back End generates the final assembly code:
 
-- **Code Generation**: Converts the intermediate representation into x86_64 assembly code.
-- **Output**: Writes the assembly code to an .s file ready to be assembled and executed.
-
+- **Code Generation**: Converts the intermediate representation into x86_64 linux assembly code.
+- **Optimization**: improves the code by using optimal registers and operators (e.g., MOVQ for moving addresses (8 bytes) and MOVL for moving integers (4 bytes). Using ADDB for adding bytes instead of ADDQ designed for adding 8-byte numbers like doubles, ... )
+- **Output**: Writes, as illustrated by Figure 6, the assembly code to an .s file ready to be translated in machine code and executed.
+<p align=center>
+<img src="imgs/SProgram.png"></img>
+</p>
+<p align=center>
+<em>Fig.6: Generated .s code fro x86_64 linux target platforms</em>
+</p>
 ## Usage
 
 To compile a .b source file, use the Compiler class:
