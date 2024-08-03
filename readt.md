@@ -79,7 +79,7 @@ The Middle End performs semantic analysis and optimization:
 <img src="imgs/IR.png"></img>
 </p>
 <p align=center>
-<em>Fig.5: Optimized intermediate representation from semantic analysis. (left) Symbol table, (right) grounded AST</em>
+<em>Fig.5: Optimized intermediate representation from semantic analysis. (right) Symbol table, (left) grounded AST</em>
 </p>
 
 ## Back End
