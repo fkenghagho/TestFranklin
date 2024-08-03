@@ -9,6 +9,9 @@ This project is about building a compiler for the B language, implemented in Pyt
 - **middle_end.py**: module containing the MiddleEnd class for semantic analysis, optimization, and intermediate representation generation.
 - **back_end.py**: module for generating the final .s assembly code.
 - **utils.py**: Utility file containing helper classes and functions like file management and data structures.
+- **b_grammar.gr**: File containing a Turing-complete grammar for the b language
+- **requirements**: File containing the python dependency requirements
+- **tests**: Folder containing the tests
 
 <p align=center>
 <img src="imgs/ProjectFolder.png"></img>
@@ -45,6 +48,9 @@ The Back End generates the final assembly code:
 ## Usage
 
 To compile a .b source file, use the Compiler class:
+```console
+username@hostname:~$ ./path_to_project_foler/compiler.py
+```
 
 ```python
 from Compiler import Compiler
