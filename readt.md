@@ -4,10 +4,10 @@ This project is about building a compiler for the B language, implemented in Pyt
 
 ## Project Structure
 
-- **Compiler.py**: Main class of the compiler orchestrating the different compilation stages.
-- **FrontEnd.py**: Module for lexical and syntactical analysis and abstract syntax tree construction.
-- **MiddleEnd.py**: Module for semantic analysis, optimization, and intermediate representation generation.
-- **BackEnd.py**: Module for generating the final assembly code.
+- **compiler.py**: module containg the main class of the compiler orchestrating the different compilation stages.
+- **front_end.py**: module containing the FrontEnd class for lexical and syntactical analysis and abstract syntax tree construction.
+- **middle_end.py**: module containing the MiddleEnd class for semantic analysis, optimization, and intermediate representation generation.
+- **back_end.py**: module for generating the final .s assembly code.
 - **utils.py**: Utility file containing helper classes and functions like file management and data structures.
 
 <p align=center>
